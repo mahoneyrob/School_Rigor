@@ -1,0 +1,544 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+# Add Matplotlib inline magic command
+get_ipython().run_line_magic('matplotlib', 'inline')
+# Dependencies and Setup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# File to Load (Remember to change these)
+data = "grades_dept_level.csv"
+
+
+# Read the City and Ride Data
+all_df = pd.read_csv(data)
+all_df.head()
+
+
+# In[21]:
+
+
+eng9 = all_df[(all_df['dept'] == 1) & (all_df['level'] == 9)]
+ssci9 = all_df[(all_df['dept'] == 2) & (all_df['level'] == 9)]
+math9 = all_df[(all_df['dept'] == 3) & (all_df['level'] == 9)]
+mcl9 = all_df[(all_df['dept'] == 4) & (all_df['level'] == 9)]
+sci9 = all_df[(all_df['dept'] == 5) & (all_df['level'] == 9)]
+rs9 = all_df[(all_df['dept'] == 6) & (all_df['level'] == 9)]
+vpa9 = all_df[(all_df['dept'] == 7) & (all_df['level'] == 9)]
+cs9 = all_df[(all_df['dept'] == 8) & (all_df['level'] == 9)]
+pe9 = all_df[(all_df['dept'] == 9) & (all_df['level'] == 9)]
+eng_sum9 = eng9['count'].sum()
+ssci_sum9 = ssci9['count'].sum()
+math_sum9 = math9['count'].sum()
+mcl_sum9 = mcl9['count'].sum()
+sci_sum9 = sci9['count'].sum()
+rs_sum9 = rs9['count'].sum()
+vpa_sum9 = vpa9['count'].sum()
+cs_sum9 = cs9['count'].sum()
+pe_sum9 = pe9['count'].sum()
+eng10 = all_df[(all_df['dept'] == 1) & (all_df['level'] == 10)]
+ssci10 = all_df[(all_df['dept'] == 2) & (all_df['level'] == 10)]
+math10 = all_df[(all_df['dept'] == 3) & (all_df['level'] == 10)]
+mcl10 = all_df[(all_df['dept'] == 4) & (all_df['level'] == 10)]
+sci10 = all_df[(all_df['dept'] == 5) & (all_df['level'] == 10)]
+rs10 = all_df[(all_df['dept'] == 6) & (all_df['level'] == 10)]
+vpa10 = all_df[(all_df['dept'] == 7) & (all_df['level'] == 10)]
+cs10 = all_df[(all_df['dept'] == 8) & (all_df['level'] == 10)]
+pe10 = all_df[(all_df['dept'] == 9) & (all_df['level'] == 10)]
+eng_sum10 = eng10['count'].sum()
+ssci_sum10 = ssci10['count'].sum()
+math_sum10 = math10['count'].sum()
+mcl_sum10 = mcl10['count'].sum()
+sci_sum10 = sci10['count'].sum()
+rs_sum10 = rs10['count'].sum()
+vpa_sum10 = vpa10['count'].sum()
+cs_sum10 = cs10['count'].sum()
+pe_sum10 = pe10['count'].sum()
+eng11 = all_df[(all_df['dept'] == 1) & (all_df['level'] == 11)]
+ssci11 = all_df[(all_df['dept'] == 2) & (all_df['level'] == 11)]
+math11 = all_df[(all_df['dept'] == 3) & (all_df['level'] == 11)]
+mcl11 = all_df[(all_df['dept'] == 4) & (all_df['level'] == 11)]
+sci11 = all_df[(all_df['dept'] == 5) & (all_df['level'] == 11)]
+rs11 = all_df[(all_df['dept'] == 6) & (all_df['level'] == 11)]
+vpa11 = all_df[(all_df['dept'] == 7) & (all_df['level'] == 11)]
+cs11 = all_df[(all_df['dept'] == 8) & (all_df['level'] == 11)]
+pe11 = all_df[(all_df['dept'] == 9) & (all_df['level'] == 11)]
+eng_sum11 = eng11['count'].sum()
+ssci_sum11 = ssci11['count'].sum()
+math_sum11 = math11['count'].sum()
+mcl_sum11 = mcl11['count'].sum()
+sci_sum11 = sci11['count'].sum()
+rs_sum11 = rs11['count'].sum()
+vpa_sum11 = vpa11['count'].sum()
+cs_sum11 = cs11['count'].sum()
+pe_sum11 = pe11['count'].sum()
+eng12 = all_df[(all_df['dept'] == 1) & (all_df['level'] == 12)]
+ssci12 = all_df[(all_df['dept'] == 2) & (all_df['level'] == 12)]
+math12 = all_df[(all_df['dept'] == 3) & (all_df['level'] == 12)]
+mcl12 = all_df[(all_df['dept'] == 4) & (all_df['level'] == 12)]
+sci12 = all_df[(all_df['dept'] == 5) & (all_df['level'] == 12)]
+rs12 = all_df[(all_df['dept'] == 6) & (all_df['level'] == 12)]
+vpa12 = all_df[(all_df['dept'] == 7) & (all_df['level'] == 12)]
+cs12 = all_df[(all_df['dept'] == 8) & (all_df['level'] == 12)]
+pe12 = all_df[(all_df['dept'] == 9) & (all_df['level'] == 12)]
+eng_sum12 = eng12['count'].sum()
+ssci_sum12 = ssci12['count'].sum()
+math_sum12 = math12['count'].sum()
+mcl_sum12 = mcl12['count'].sum()
+sci_sum12 = sci12['count'].sum()
+rs_sum12 = rs12['count'].sum()
+vpa_sum12 = vpa12['count'].sum()
+cs_sum12 = cs12['count'].sum()
+pe_sum12 = pe12['count'].sum()
+pe9
+
+
+# In[86]:
+
+
+eng_c9 = (eng9['count'] / eng_sum9).tolist()
+ssci_c9 = (ssci9['count'] / ssci_sum9).tolist()
+math_c9 = (math9['count'] / math_sum9).tolist()
+mcl_c9 = (mcl9['count'] / mcl_sum9).tolist()
+sci_c9 = (sci9['count'] / sci_sum9).tolist()
+rs_c9 = (rs9['count'] / rs_sum9).tolist()
+vpa_c9 = (vpa9['count'] / vpa_sum9).tolist()
+cs_c9 = (cs9['count'] / cs_sum9).tolist()
+pe_c9 = (pe9['count'] / pe_sum9).tolist()
+eng_c9count = eng9['count'].tolist()
+ssci_c9count = ssci9['count'].tolist()
+math_c9count = math9['count'].tolist()
+mcl_c9count = mcl9['count'].tolist()
+sci_c9count = sci9['count'].tolist()
+rs_c9count = rs9['count'].tolist()
+vpa_c9count = vpa9['count'].tolist()
+cs_c9count = cs9['count'].tolist()
+pe_c9count = pe9['count'].tolist()
+cs_c9.append(0)
+pe_c9.append(0)
+pe_c9.append(0)
+pe_c9.append(0)
+pe_c9.append(0)
+
+
+# In[25]:
+
+
+xbin = [10, 20, 30, 40, 50]
+eng_g = [x-4 for x in xbin]
+ssci_g = [x-3 for x in xbin]
+math_g = [x-2 for x in xbin]
+mcl_g = [x-1 for x in xbin]
+sci_g = [x for x in xbin]
+rs_g = [x+1 for x in xbin]
+vpa_g = [x+2 for x in xbin]
+cs_g = [x+3 for x in xbin]
+pe_g = [x+4 for x in xbin]
+
+
+# In[106]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c9, width = 1, color = 'tab:blue', align = 'center', label = 'English')
+plt.bar(ssci_g, ssci_c9, width = 1, color = 'tab:orange', align = 'center', label = 'S Science')
+plt.bar(math_g, math_c9, width = 1, color = 'tab:green', align = 'center', label = 'Math')
+plt.bar(mcl_g, mcl_c9, width = 1, color = 'tab:red', align = 'center', label = 'MCL')
+plt.bar(sci_g, sci_c9, width = 1, color = 'tab:purple', align = 'center', label = 'Science')
+plt.bar(rs_g, rs_c9, width = 1, color = 'tab:brown', align = 'center', label = 'Religion')
+plt.bar(vpa_g, vpa_c9, width = 1, color = 'tab:pink', align = 'center', label = 'VPA')
+plt.bar(cs_g, cs_c9, width = 1, color = 'tab:gray', align = 'center', label = 'CS')
+plt.bar(pe_g, pe_c9, width = 1, color = 'tab:olive', align = 'center', label = 'PE')
+plt.title('Freshman Grades by Department', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in Department with grade", fontsize = 30)
+plt.xticks([10, 20, 30, 40, 50], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,1)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Department', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[85]:
+
+
+eng_c10 = (eng10['count'] / eng_sum10).tolist()
+ssci_c10 = (ssci10['count'] / ssci_sum10).tolist()
+math_c10 = (math10['count'] / math_sum10).tolist()
+mcl_c10 = (mcl10['count'] / mcl_sum10).tolist()
+sci_c10 = (sci10['count'] / sci_sum10).tolist()
+rs_c10 = (rs10['count'] / rs_sum10).tolist()
+vpa_c10 = (vpa10['count'] / vpa_sum10).tolist()
+cs_c10 = (cs10['count'] / cs_sum10).tolist()
+pe_c10 = (pe10['count'] / pe_sum10).tolist()
+eng_c10count = eng10['count'].tolist()
+ssci_c10count = ssci10['count'].tolist()
+math_c10count = math10['count'].tolist()
+mcl_c10count = mcl10['count'].tolist()
+sci_c10count = sci10['count'].tolist()
+rs_c10count = rs10['count'].tolist()
+vpa_c10count = vpa10['count'].tolist()
+cs_c10count = cs10['count'].tolist()
+pe_c10count = pe10['count'].tolist()
+pe_c10.append(0)
+pe_c10.append(0)
+pe_c10.append(0)
+
+
+# In[105]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c10, width = 1, color = 'tab:blue', align = 'center', label = 'English')
+plt.bar(ssci_g, ssci_c10, width = 1, color = 'tab:orange', align = 'center', label = 'S Science')
+plt.bar(math_g, math_c10, width = 1, color = 'tab:green', align = 'center', label = 'Math')
+plt.bar(mcl_g, mcl_c10, width = 1, color = 'tab:red', align = 'center', label = 'MCL')
+plt.bar(sci_g, sci_c10, width = 1, color = 'tab:purple', align = 'center', label = 'Science')
+plt.bar(rs_g, rs_c10, width = 1, color = 'tab:brown', align = 'center', label = 'Religion')
+plt.bar(vpa_g, vpa_c10, width = 1, color = 'tab:pink', align = 'center', label = 'VPA')
+plt.bar(cs_g, cs_c10, width = 1, color = 'tab:gray', align = 'center', label = 'CS')
+plt.bar(pe_g, pe_c10, width = 1, color = 'tab:olive', align = 'center', label = 'PE')
+plt.title('Sophomore Grades by Department', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in Department with grade", fontsize = 30)
+plt.xticks([10, 20, 30, 40, 50], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,1)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Department', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[111]:
+
+
+eng_c11 = (eng11['count'] / eng_sum11).tolist()
+ssci_c11 = (ssci11['count'] / ssci_sum11).tolist()
+math_c11 = (math11['count'] / math_sum11).tolist()
+mcl_c11 = (mcl11['count'] / mcl_sum11).tolist()
+sci_c11 = (sci11['count'] / sci_sum11).tolist()
+rs_c11 = (rs11['count'] / rs_sum11).tolist()
+vpa_c11 = (vpa11['count'] / vpa_sum11).tolist()
+cs_c11 = (cs11['count'] / cs_sum11).tolist()
+pe_c11 = (pe11['count'] / pe_sum11).tolist()
+eng_c11count = eng11['count'].tolist()
+ssci_c11count = ssci11['count'].tolist()
+math_c11count = math11['count'].tolist()
+mcl_c11count = mcl11['count'].tolist()
+sci_c11count = sci11['count'].tolist()
+rs_c11count = rs11['count'].tolist()
+vpa_c11count = vpa11['count'].tolist()
+cs_c11count = cs11['count'].tolist()
+pe_c11count = pe11['count'].tolist()
+vpa_c11.append(0)
+vpa_c11.append(0)
+vpa_c11.append(0)
+vpa_c11.append(0)
+vpa_c11.append(0)
+cs_c11.append(0)
+pe_c11.append(0)
+pe_c11.append(0)
+cs_c11count.append(0)
+pe_c11count.append(0)
+pe_c11count.append(0)
+
+
+# In[112]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c11, width = 1, color = 'tab:blue', align = 'center', label = 'English')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (eng_c11[value] + 0.01), eng_c11count[value], color = 'tab:blue')
+plt.bar(ssci_g, ssci_c11, width = 1, color = 'tab:orange', align = 'center', label = 'S Science')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (ssci_c11[value] + 0.01), ssci_c11count[value], color = 'tab:orange')
+plt.bar(math_g, math_c11, width = 1, color = 'tab:green', align = 'center', label = 'Math')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (math_c11[value] + 0.01), math_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, mcl_c11, width = 1, color = 'tab:red', align = 'center', label = 'MCL')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (mcl_c11[value] + 0.01), mcl_c11count[value], color = 'tab:red')
+plt.bar(sci_g, sci_c11, width = 1, color = 'tab:purple', align = 'center', label = 'Science')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(sci_g[value]-0.55, (sci_c11[value] + 0.01), sci_c11count[value], color = 'tab:purple')
+plt.bar(rs_g, rs_c11, width = 1, color = 'tab:brown', align = 'center', label = 'Religion')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(rs_g[value]-0.55, (rs_c11[value] + 0.01), rs_c11count[value], color = 'tab:brown')
+#plt.bar(vpa_g, vpa_c11, width = 1, color = 'tab:pink', align = 'center', label = 'VPA')
+plt.bar(vpa_g, cs_c11, width = 1, color = 'tab:gray', align = 'center', label = 'CS')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(vpa_g[value]-0.55, (cs_c11[value] + 0.01), cs_c11count[value], color = 'tab:gray')
+plt.bar(cs_g, pe_c11, width = 1, color = 'tab:olive', align = 'center', label = 'PE')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(cs_g[value]-0.55, (pe_c12[value] + 0.01), pe_c12count[value], color = 'tab:olive')
+plt.title('Junior Grades by Department', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in Department with grade", fontsize = 30)
+plt.xticks([10, 20, 30, 40, 50], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,1)
+plt.text(40, 0.42, 'NOTE: no VPA class was \nclassified as Junior level', fontsize = 16, alpha = 0.6)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Department', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[80]:
+
+
+eng_c12 = (eng12['count'] / eng_sum12).tolist()
+ssci_c12 = (ssci12['count'] / ssci_sum12).tolist()
+math_c12 = (math12['count'] / math_sum12).tolist()
+mcl_c12 = (mcl12['count'] / mcl_sum12).tolist()
+sci_c12 = (sci12['count'] / sci_sum12).tolist()
+rs_c12 = (rs12['count'] / rs_sum12).tolist()
+vpa_c12 = (vpa12['count'] / vpa_sum12).tolist()
+cs_c12 = (cs12['count'] / cs_sum12).tolist()
+pe_c12 = (pe12['count'] / pe_sum12).tolist()
+eng_c12count = eng12['count'].tolist()
+ssci_c12count = ssci12['count'].tolist()
+math_c12count = math12['count'].tolist()
+mcl_c12count = mcl12['count'].tolist()
+sci_c12count = sci12['count'].tolist()
+rs_c12count = rs12['count'].tolist()
+vpa_c12count = vpa12['count'].tolist()
+cs_c12count = cs12['count'].tolist()
+pe_c12count = pe12['count'].tolist()
+vpa_c12.append(0)
+cs_c12.append(0)
+cs_c12.append(0)
+pe_c12.append(0)
+pe_c12.append(0)
+vpa_c12count.append(0)
+cs_c12count.append(0)
+cs_c12count.append(0)
+pe_c12count.append(0)
+pe_c12count.append(0)
+
+
+# In[103]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c12, width = 1, color = 'tab:blue', align = 'center', label = 'English')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (eng_c12[value] + 0.01), eng_c12count[value], color = 'tab:blue')
+plt.bar(ssci_g, ssci_c12, width = 1, color = 'tab:orange', align = 'center', label = 'S Science')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (ssci_c12[value] + 0.01), ssci_c12count[value], color = 'tab:orange')
+plt.bar(math_g, math_c12, width = 1, color = 'tab:green', align = 'center', label = 'Math')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (math_c12[value] + 0.01), math_c12count[value], color = 'tab:green')
+plt.bar(mcl_g, mcl_c12, width = 1, color = 'tab:red', align = 'center', label = 'MCL')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (mcl_c12[value] + 0.01), mcl_c12count[value], color = 'tab:red')
+plt.bar(sci_g, sci_c12, width = 1, color = 'tab:purple', align = 'center', label = 'Science')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(sci_g[value]-0.55, (sci_c12[value] + 0.01), sci_c12count[value], color = 'tab:purple')
+plt.bar(rs_g, rs_c12, width = 1, color = 'tab:brown', align = 'center', label = 'Religion')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(rs_g[value]-0.55, (rs_c12[value] + 0.01), rs_c12count[value], color = 'tab:brown')
+plt.bar(vpa_g, vpa_c12, width = 1, color = 'tab:pink', align = 'center', label = 'VPA')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(vpa_g[value]-0.55, (vpa_c12[value] + 0.01), vpa_c12count[value], color = 'tab:pink')
+plt.bar(cs_g, cs_c12, width = 1, color = 'tab:gray', align = 'center', label = 'CS')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(cs_g[value]-0.55, (cs_c12[value] + 0.01), cs_c12count[value], color = 'tab:gray')
+plt.bar(pe_g, pe_c12, width = 1, color = 'tab:olive', align = 'center', label = 'PE')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(pe_g[value]-0.55, (pe_c12[value] + 0.01), pe_c12count[value], color = 'tab:olive')
+plt.title('Senior Grades by Department', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in Department with grade", fontsize = 30)
+plt.xticks([10, 20, 30, 40, 50], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.95)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Department', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[101]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c9, width = 1, color = 'tab:blue', align = 'center', label = 'English 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (eng_c9[value] + 0.01), eng_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, eng_c10, width = 1, color = 'tab:orange', align = 'center', label = 'English 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (eng_c10[value] + 0.01), eng_c10count[value], color = 'tab:orange')
+plt.bar(math_g, eng_c11, width = 1, color = 'tab:green', align = 'center', label = 'English 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (eng_c11[value] + 0.01), eng_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, eng_c12, width = 1, color = 'tab:red', align = 'center', label = 'English 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (eng_c12[value] + 0.01), eng_c12count[value], color = 'tab:red')
+plt.title('English Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.66)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[99]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, ssci_c9, width = 1, color = 'tab:blue', align = 'center', label = 'Social Science 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (ssci_c9[value] + 0.01), ssci_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, ssci_c10, width = 1, color = 'tab:orange', align = 'center', label = 'Social Science 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (ssci_c10[value] + 0.01), ssci_c10count[value], color = 'tab:orange')
+plt.bar(math_g, ssci_c11, width = 1, color = 'tab:green', align = 'center', label = 'Social Science 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (ssci_c11[value] + 0.01), ssci_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, ssci_c12, width = 1, color = 'tab:red', align = 'center', label = 'Social Science 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (ssci_c12[value] + 0.01), ssci_c12count[value], color = 'tab:red')
+plt.title('Social Science Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.6)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[98]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, math_c9, width = 1, color = 'tab:blue', align = 'center', label = 'Math 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (math_c9[value] + 0.01), math_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, math_c10, width = 1, color = 'tab:orange', align = 'center', label = 'Math 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (math_c10[value] + 0.01), math_c10count[value], color = 'tab:orange')
+plt.bar(math_g, math_c11, width = 1, color = 'tab:green', align = 'center', label = 'Math 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (math_c11[value] + 0.01), math_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, math_c12, width = 1, color = 'tab:red', align = 'center', label = 'Math 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (math_c12[value] + 0.01), math_c12count[value], color = 'tab:red')
+plt.title('Math Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.56)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[97]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, mcl_c9, width = 1, color = 'tab:blue', align = 'center', label = 'MCL 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (mcl_c9[value] + 0.01), mcl_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, mcl_c10, width = 1, color = 'tab:orange', align = 'center', label = 'MCL 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (mcl_c10[value] + 0.01), mcl_c10count[value], color = 'tab:orange')
+plt.bar(math_g, mcl_c11, width = 1, color = 'tab:green', align = 'center', label = 'MCL 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (mcl_c11[value] + 0.01), mcl_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, mcl_c12, width = 1, color = 'tab:red', align = 'center', label = 'MCL 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (mcl_c12[value] + 0.01), mcl_c12count[value], color = 'tab:red')
+plt.title('MCL Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.75)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[96]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, sci_c9, width = 1, color = 'tab:blue', align = 'center', label = 'Science 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (sci_c9[value] + 0.01), sci_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, sci_c10, width = 1, color = 'tab:orange', align = 'center', label = 'Science 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (sci_c10[value] + 0.01), sci_c10count[value], color = 'tab:orange')
+plt.bar(math_g, sci_c11, width = 1, color = 'tab:green', align = 'center', label = 'Science 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (sci_c11[value] + 0.01), sci_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, sci_c12, width = 1, color = 'tab:red', align = 'center', label = 'Science 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (sci_c12[value] + 0.01), sci_c12count[value], color = 'tab:red')
+plt.title('Science Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,0.65)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[95]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, rs_c9, width = 1, color = 'tab:blue', align = 'center', label = 'Religion 9th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(eng_g[value]-0.55, (rs_c9[value] + 0.01), rs_c9count[value], color = 'tab:blue')
+plt.bar(ssci_g, rs_c10, width = 1, color = 'tab:orange', align = 'center', label = 'Religion 10th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(ssci_g[value]-0.55, (rs_c10[value] + 0.01), rs_c10count[value], color = 'tab:orange')
+plt.bar(math_g, rs_c11, width = 1, color = 'tab:green', align = 'center', label = 'Religion 11th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(math_g[value]-0.55, (rs_c11[value] + 0.01), rs_c11count[value], color = 'tab:green')
+plt.bar(mcl_g, rs_c12, width = 1, color = 'tab:red', align = 'center', label = 'Religion 12th Grade')
+for value in [0, 1, 2, 3, 4]:
+    plt.text(mcl_g[value]-0.55, (rs_c12[value] + 0.01), rs_c12count[value], color = 'tab:red')
+plt.title('Religion Grades by Level', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in level with grade", fontsize = 30)
+plt.xticks([8, 18, 28, 38, 48], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,1)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Level', title_fontsize = '30')
+#plt.savefig('Grades_by_Department.png')
+
+
+# In[ ]:
+
+
+
+

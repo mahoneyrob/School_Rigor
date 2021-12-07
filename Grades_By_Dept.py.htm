@@ -1,0 +1,107 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+# Add Matplotlib inline magic command
+get_ipython().run_line_magic('matplotlib', 'inline')
+# Dependencies and Setup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# File to Load (Remember to change these)
+data = "grades_dept.csv"
+
+
+# Read the City and Ride Data
+all_df = pd.read_csv(data)
+all_df.head()
+
+
+# In[4]:
+
+
+eng = all_df[all_df['dept'] == 1]
+ssci = all_df[all_df['dept'] == 2]
+math = all_df[all_df['dept'] == 3]
+mcl = all_df[all_df['dept'] == 4]
+sci = all_df[all_df['dept'] == 5]
+rs = all_df[all_df['dept'] == 6]
+vpa = all_df[all_df['dept'] == 7]
+cs = all_df[all_df['dept'] == 8]
+pe = all_df[all_df['dept'] == 9]
+eng_sum = eng['count'].sum()
+ssci_sum = ssci['count'].sum()
+math_sum = math['count'].sum()
+mcl_sum = mcl['count'].sum()
+sci_sum = sci['count'].sum()
+rs_sum = rs['count'].sum()
+vpa_sum = vpa['count'].sum()
+cs_sum = cs['count'].sum()
+pe_sum = pe['count'].sum()
+
+
+# In[10]:
+
+
+eng_c = (eng['count'] / eng_sum).tolist()
+ssci_c = (ssci['count'] / ssci_sum).tolist()
+math_c = (math['count'] / math_sum).tolist()
+mcl_c = (mcl['count'] / mcl_sum).tolist()
+sci_c = (sci['count'] / sci_sum).tolist()
+rs_c = (rs['count'] / rs_sum).tolist()
+vpa_c = (vpa['count'] / vpa_sum).tolist()
+cs_c = (cs['count'] / cs_sum).tolist()
+pe_c = (pe['count'] / pe_sum).tolist()
+pe_c.append(0)
+pe_c.append(0)
+pe_c
+
+
+# In[11]:
+
+
+xbin = [10, 20, 30, 40, 50]
+eng_g = [x-4 for x in xbin]
+ssci_g = [x-3 for x in xbin]
+math_g = [x-2 for x in xbin]
+mcl_g = [x-1 for x in xbin]
+sci_g = [x for x in xbin]
+rs_g = [x+1 for x in xbin]
+vpa_g = [x+2 for x in xbin]
+cs_g = [x+3 for x in xbin]
+pe_g = [x+4 for x in xbin]
+
+
+# In[12]:
+
+
+plt.figure(figsize = (20, 20))
+plt.bar(eng_g, eng_c, width = 1, color = 'tab:blue', align = 'center', label = 'English')
+plt.bar(ssci_g, ssci_c, width = 1, color = 'tab:orange', align = 'center', label = 'S Science')
+plt.bar(math_g, math_c, width = 1, color = 'tab:green', align = 'center', label = 'Math')
+plt.bar(mcl_g, mcl_c, width = 1, color = 'tab:red', align = 'center', label = 'MCL')
+plt.bar(sci_g, sci_c, width = 1, color = 'tab:purple', align = 'center', label = 'Science')
+plt.bar(rs_g, rs_c, width = 1, color = 'tab:brown', align = 'center', label = 'Religion')
+plt.bar(vpa_g, vpa_c, width = 1, color = 'tab:pink', align = 'center', label = 'VPA')
+plt.bar(cs_g, cs_c, width = 1, color = 'tab:gray', align = 'center', label = 'CS')
+plt.bar(pe_g, pe_c, width = 1, color = 'tab:olive', align = 'center', label = 'PE')
+plt.title('Grades by Department', fontsize = 40)
+plt.xlabel("Grade", fontsize = 30)
+plt.ylabel("Percent of students in Department with grade", fontsize = 30)
+plt.xticks([10, 20, 30, 40, 50], ['A', 'B', 'C', 'D', 'F'], rotation=0, fontsize = 20)
+plt.yticks([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'], rotation=0, fontsize = 20)
+plt.grid(True)
+plt.ylim(0,1)
+plt.legend()
+lgnd = plt.legend(prop={'size': 40}, fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'Department', title_fontsize = '30')
+plt.savefig('Grades_by_Department.png')
+
+
+# In[ ]:
+
+
+
+
