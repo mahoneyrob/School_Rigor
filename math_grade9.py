@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# File to Load (Remember to change these)
+# File to Load 
 data = "combine.csv"
 
 
