@@ -1,0 +1,135 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+# Add Matplotlib inline magic command
+get_ipython().run_line_magic('matplotlib', 'inline')
+# Dependencies and Setup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# File to Load 
+load = "grades_HSPT.csv"
+
+
+# Read the Data
+english_df = pd.read_csv(load)
+english_df
+
+
+# In[5]:
+
+
+c2021RDNP114 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2021) & (english_df['course_number'] == 114)]
+c2022RDNP114 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2022) & (english_df['course_number'] == 114)]
+c2023RDNP114 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2023) & (english_df['course_number'] == 114)]
+c2024RDNP114 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2024) & (english_df['course_number'] == 114)]
+c2021RDNP110 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2021) & (english_df['course_number'] == 110)]
+c2022RDNP110 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2022) & (english_df['course_number'] == 110)]
+c2023RDNP110 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2023) & (english_df['course_number'] == 110)]
+c2024RDNP110 = english_df[(english_df['test_id'] == 66) & (english_df['classof'] == 2024) & (english_df['course_number'] == 110)]
+
+
+# In[14]:
+
+
+linear = english_df[english_df['class_percent'] == english_df['score']]
+linear
+
+
+# In[7]:
+
+
+x1142021 = c2021RDNP114['score']
+y1142021 = c2021RDNP114['class_percent']
+x1142022 = c2022RDNP114['score']
+y1142022 = c2022RDNP114['class_percent']
+x1142023 = c2023RDNP114['score']
+y1142023 = c2023RDNP114['class_percent']
+x1142024 = c2024RDNP114['score']
+y1142024 = c2024RDNP114['class_percent']
+x1102021 = c2021RDNP110['score']
+y1102021 = c2021RDNP110['class_percent']
+x1102022 = c2022RDNP110['score']
+y1102022 = c2022RDNP110['class_percent']
+x1102023 = c2023RDNP110['score']
+y1102023 = c2023RDNP110['class_percent']
+x1102024 = c2024RDNP110['score']
+y1102024 = c2024RDNP110['class_percent']
+
+ave_score1142021 = x1142021.mean()
+ave_score1142022 = x1142022.mean()
+ave_score1142023 = x1142023.mean()
+ave_score1142024 = x1142024.mean()
+ave_score1102021 = x1102021.mean()
+ave_score1102022 = x1102022.mean()
+ave_score1102023 = x1102023.mean()
+ave_score1102024 = x1102024.mean()
+
+yvals = np.arange(0, 120, 1)
+yvals
+a21114x = []
+a22114x = []
+a23114x = []
+a24114x = []
+a21110x = []
+a22110x = []
+a23110x = []
+a24110x = []
+for x in range(len(yvals)):
+    a21114x.append(ave_score1142021)
+    a22114x.append(ave_score1142022)
+    a23114x.append(ave_score1142023)
+    a24114x.append(ave_score1142024)
+    a21110x.append(ave_score1102021)
+    a22110x.append(ave_score1102022)
+    a23110x.append(ave_score1102023)
+    a24110x.append(ave_score1102024)
+
+
+# In[17]:
+
+
+plt.figure(figsize = (20, 20))
+plt.scatter(x1142021, y1142021, c = 'blue', alpha = 0.8, edgecolor="black", label = 'E1H 2021')
+plt.scatter(x1142022, y1142022, c = 'red', alpha = 0.8, edgecolor="black", label = 'E1H 2022')
+plt.scatter(x1142023, y1142023, c = 'green', alpha = 0.8, edgecolor="black", label = 'E1H 2023')
+plt.scatter(x1142024, y1142024, c = 'orange', alpha = 0.8, edgecolor="black", label = 'E1H 2024')
+plt.scatter(x1102021, y1102021, c = 'purple', alpha = 0.8, edgecolor="black", label = 'E1 2021')
+plt.scatter(x1102022, y1102022, c = 'yellow', alpha = 0.8, edgecolor="black", label = 'E1 2022')
+plt.scatter(x1102023, y1102023, c = 'olive', alpha = 0.8, edgecolor="black", label = 'E1 2023')
+plt.scatter(x1102024, y1102024, c = 'midnightblue', alpha = 0.8, edgecolor="black", label = 'E1 2024')
+plt.plot(a21114x, yvals)
+plt.plot(a22114x, yvals)
+plt.plot(a23114x, yvals)
+plt.plot(a24114x, yvals)
+plt.plot(a21110x, yvals)
+plt.plot(a22110x, yvals)
+plt.plot(a23110x, yvals)
+plt.plot(a24110x, yvals)
+plt.title('Percent in class vs score on HSPT - RDNP', fontsize = 20)
+plt.xlabel("Score on HSPT - RDNP", fontsize = 12)
+plt.ylabel("Percent in Class", fontsize = 12)
+plt.grid(True)
+plt.legend()
+plt.ylim([60, 105])
+lgnd = plt.legend(fontsize = '20', mode = 'Expanded', scatterpoints = 1, loc = 'best', title = 'course')
+plt.text(30, 75, f'114 2021: {ave_score1142021:.2f}')
+plt.text(30, 74, f'114 2022: {ave_score1142022:.2f}')
+plt.text(30, 73, f'114 2023: {ave_score1142023:.2f}')
+plt.text(30, 72, f'114 2024: {ave_score1142024:.2f}')
+plt.text(30, 71, f'110 2021: {ave_score1102021:.2f}')
+plt.text(30, 70, f'110 2022: {ave_score1102022:.2f}')
+plt.text(30, 69, f'110 2023: {ave_score1102023:.2f}')
+plt.text(30, 68, f'110 2024: {ave_score1102024:.2f}')
+#plt.savefig('fig1.png')
+
+
+# In[ ]:
+
+
+
+
